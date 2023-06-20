@@ -1,9 +1,10 @@
-const iconPrev = $('.relate__icon--left');
-const iconNext = $('.relate__icon--right');
+// Slider Relate
+const iconPrev = $(".relate__icon--left");
+const iconNext = $(".relate__icon--right");
 
 $(".relate-slider").owlCarousel({
   loop: true,
-  margin: 14,
+  margin: 48,
   nav: false,
   autoplay: true,
   autoplayTimeout: 4000,
@@ -11,7 +12,7 @@ $(".relate-slider").owlCarousel({
   smartSpeed: 850,
   autoplaySpeed: 850,
   autoplayHoverPause: true,
-  mouseDrag: true,
+  mouseDrag: false,
   items: 3,
 });
 
@@ -22,11 +23,12 @@ $(iconNext).on("click", function () {
   $(".owl-next").click();
 });
 
+
 // Table of Contents
-const tocContainer = $(".listContent ul");
+const tocContainer = $(".content-right__list");
 let lastH1Li = null;
 
-$(".content")
+$(".content-left")
   .find("h1,h2")
   .each(function () {
     const headingText = $(this).text();
@@ -51,4 +53,3 @@ $(".content")
       );
     }
   });
-

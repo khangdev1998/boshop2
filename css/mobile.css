@@ -2,6 +2,9 @@
 body {
   font-family: "SF Pro Display", sans-serif !important;
 }
+html {
+  scroll-behavior: smooth;
+}
 .breadcrumbs {
   --color-text: #5d5d5d;
   list-style: none;
@@ -47,12 +50,15 @@ body {
 }
 .content {
   width: 100%;
-  font-weight: 500;
+  margin-top: 25px;
+}
+.content h1,
+.content h2,
+.content p {
   font-size: 14px;
   line-height: 28px;
   text-align: justify;
   color: #000000;
-  margin-top: 25px;
 }
 .content__readMore {
   padding: 12px 15px;
@@ -61,65 +67,67 @@ body {
   margin-top: 12px;
 }
 .content__readMore h4 {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 28px;
   color: #000000;
 }
-.content__readMore ul {
-  color: #493bee;
-  padding-left: 1rem;
-  line-height: 1.4;
+.content__readMore h4,
+.content__readMore li a {
+  font-size: 14px;
+  line-height: 28px;
 }
-.content__readMore ul li + li {
-  margin-top: 8px;
+.content__readMore ul {
+  padding-left: 1.6rem;
 }
 .content__readMore ul li a {
+  color: #493bee;
   text-decoration: none;
-  color: inherit;
+  font-weight: 400;
 }
 .content__readMore ul li a:hover {
   text-decoration: underline;
 }
-.list {
+.listContent {
   width: 100%;
   background: #f1f1f1;
   border-radius: 10px;
   padding: 10px 20px;
 }
-.list__caption {
-  margin-bottom: 8px;
-  padding-bottom: 8px;
+.listContent__caption {
   border-bottom: 1px solid #ebbdbd;
+  padding-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
-.list > * {
+.listContent__caption > span {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 28px;
   color: #2d2020;
 }
-.list__title {
-  margin-bottom: 0;
+.listContent ul {
+  list-style-type: none;
 }
-.list ol {
-  margin-bottom: 12px;
-  padding-left: 1.2rem;
+.listContent > ul {
+  padding-left: 0;
 }
-.list ol li a {
-  color: initial;
+.listContent ul li ul {
+  padding-left: 0.6rem;
+}
+.listContent ul li a:hover {
+  color: #ef035a;
+}
+.listContent > li + li {
+  margin-top: 4px;
+}
+.listContent li a {
   text-decoration: none;
-  margin-left: 4px;
+}
+.listContent li a,
+li {
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
   color: #2d2020;
-}
-.list ol li a:hover {
-  color: #c83f51;
 }
 .relate {
   position: relative;
@@ -165,8 +173,8 @@ body {
   --size-icon: 28px;
   width: var(--size-icon);
   height: var(--size-icon);
-  background: #b7c2cb !important;
-  border-radius: 100rem !important;
+  background: #b7c2cb;
+  border-radius: 100rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
