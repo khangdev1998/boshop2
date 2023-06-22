@@ -5,6 +5,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
 .breadcrumbs {
   --color-text: #5d5d5d;
   list-style: none;
@@ -97,12 +98,16 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 .listContent__caption > span {
   font-weight: 500;
   font-size: 16px;
   line-height: 28px;
   color: #2d2020;
+}
+.listContent__caption img.active {
+  transform: rotate(180deg);
 }
 .listContent ul {
   list-style-type: none;

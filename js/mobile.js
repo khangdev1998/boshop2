@@ -1,5 +1,5 @@
-const iconPrev = $('.relate__icon--left');
-const iconNext = $('.relate__icon--right');
+const iconPrev = $(".relate__icon--left");
+const iconNext = $(".relate__icon--right");
 
 $(".relate-slider").owlCarousel({
   loop: true,
@@ -52,3 +52,8 @@ $(".content")
     }
   });
 
+// Dropdown Tab of Contents
+$(".listContent__caption").click(function () {
+  $("ul", $(this).parent()).slideToggle();
+  $(".listContent__caption img").toggleClass("active");
+});
