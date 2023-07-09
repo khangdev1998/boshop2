@@ -28,14 +28,14 @@ let lastH1Li = null;
 
 $(".content")
   .find("h1,h2")
-  .each(function () {
+  .each(function (index) {
     const headingText = $(this).text();
-    const headingId = headingText.replace(/\s+/g, "_");
+    const headingId = "id_" + index; 
     $(this).attr("id", headingId);
 
     if ($(this).is("h1")) {
       lastH1Li = $(
-        '<li><a href="#' + headingId + '">' + headingText + "</a></li>"
+        `<li><a class="content-right__link" data-target="${headingId}">${headingText}</a></li>`
       );
       tocContainer.append(lastH1Li);
     } else if ($(this).is("h2")) {
@@ -47,10 +47,28 @@ $(".content")
       }
 
       h2Ul.append(
-        '<li><a href="#' + headingId + '">' + headingText + "</a></li>"
+        `<li><a class="content-right__link" data-target="${headingId}">${headingText}</a></li>`
       );
     }
   });
+
+// Implement smooth scroll
+$(".listContent li a").click(function (event) {
+  event.preventDefault();
+
+  let targetId = $(this).data("target");
+  let targetElement = $("#" + targetId);
+
+  if (targetElement.length) {
+    $("html, body").animate(
+      {
+        scrollTop: targetElement.offset().top,
+      },
+      540
+    );
+  }
+});
+
 
 // Dropdown Tab of Contents
 $(".listContent__caption").click(function () {

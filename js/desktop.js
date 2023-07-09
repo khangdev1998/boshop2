@@ -23,21 +23,20 @@ $(iconNext).on("click", function () {
   $(".owl-next").click();
 });
 
-
 // Table of Contents
 const tocContainer = $(".content-right__list");
 let lastH1Li = null;
 
 $(".content-left")
   .find("h1,h2")
-  .each(function () {
+  .each(function (index) {
     const headingText = $(this).text();
-    const headingId = headingText.replace(/\s+/g, "_");
+    const headingId = "id_" + index; 
     $(this).attr("id", headingId);
 
     if ($(this).is("h1")) {
       lastH1Li = $(
-        '<li><a href="#' + headingId + '">' + headingText + "</a></li>"
+        `<li><a class="content-right__link" data-target="${headingId}">${headingText}</a></li>`
       );
       tocContainer.append(lastH1Li);
     } else if ($(this).is("h2")) {
@@ -49,7 +48,24 @@ $(".content-left")
       }
 
       h2Ul.append(
-        '<li><a href="#' + headingId + '">' + headingText + "</a></li>"
+        `<li><a class="content-right__link" data-target="${headingId}">${headingText}</a></li>`
       );
     }
   });
+
+// Implement smooth scroll
+$(".content-right__link").click(function (event) {
+  event.preventDefault();
+
+  let targetId = $(this).data("target");
+  let targetElement = $("#" + targetId);
+
+  if (targetElement.length) {
+    $("html, body").animate(
+      {
+        scrollTop: targetElement.offset().top,
+      },
+      540
+    );
+  }
+});

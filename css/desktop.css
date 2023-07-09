@@ -3,9 +3,6 @@ body {
   font-family: "SF Pro Display", sans-serif !important;
   padding: 20px;
 }
-html {
-  scroll-behavior: smooth;
-}
 
 .breadcrumbs {
   --color-text: #5d5d5d;
@@ -125,6 +122,7 @@ html {
 }
 .content-right__list li a {
   text-decoration: none;
+  cursor: pointer;
 }
 .content-right__list li a,
 .content-right .content-right__caption {
